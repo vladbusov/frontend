@@ -1,7 +1,7 @@
-<canvas id="gc" width="640" height = "480"></canvas>
+<canvas id="gc" width="640" height = "460"></canvas>
 <script>
 	p1y = p2y = 40;
-	pt = 10;
+	pt = 14;
 	ph = 100;
 	bx = by = 50;
 	bd = 6;
@@ -60,7 +60,11 @@
 			p2y -= ais; 
 		}
 
-		cc.fillStyle = 'black';
+		//cc.fillStyle = 'black';
+		var img = new Image();
+        img.src = "fon.jpg";
+        var pattern = cc.createPattern(img, "repeat");
+        cc.fillStyle = pattern;
 		cc.fillRect(0,0, c.width, c.height);
 		cc.fillStyle = 'red';
 		cc.fillRect(0, p1y, pt, ph);
@@ -68,7 +72,8 @@
 		cc.fillRect( c.width - pt, p2y, pt, ph);
 		cc.fillStyle = 'white';
 		cc.fillRect(bx - bd/2 ,by - bd/2, bd, bd );
-		cc.fillText(score1, 100, 100);
-		cc.fillText(score2, c.width - 100, 100);
+		cc.font = '28px serif';
+		cc.fillText( "red score " + score1, 100, 100);
+		cc.fillText( "green score " + score2, c.width - 220, 100);
 	}
 </script>
